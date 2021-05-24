@@ -11,22 +11,22 @@
 name: omnisci-dev
 channels:
   - local
-  - defaults
+#  - defaults
   - conda-forge
 
 dependencies:
-  - gxx_linux-64   9.*
-  - gcc_linux-64   9.*
+#  - gxx_linux-64   9.*
+#  - gcc_linux-64   9.*
   - ccache
   - libgdal    >=2.3
-  - sysroot_linux-64 >=2.14
+#  - sysroot_linux-64 >=2.14
   - arrow-cpp  2.0
   - pyarrow    2.0
   - pandas     1.2.3
   - thrift-cpp  0.13.*
   - thrift      0.13.*
-  - llvmdev     9.*
-  - librdkafka <1.4
+  - llvmdev     11.*
+  - librdkafka
   - openjdk     8.*
   - cmake       3.16
   - libpng
@@ -46,9 +46,9 @@ dependencies:
   - libkml
   - libiconv
   - blosc
-  - ncurses
-  - flex
-  - bisonpp
+#  - ncurses
+#  - flex
+#  - bisonpp
   - openssl
   - xz
   - bzip2
@@ -56,5 +56,5 @@ dependencies:
   - ittapi
   - pytest
   # when cuda is enabled, install also
-  - nvcc_linux-64
+#  - nvcc_linux-64
   #- arrow-cpp=0.16=*cuda

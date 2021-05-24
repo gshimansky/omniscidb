@@ -31,4 +31,5 @@ target_link_libraries(StreamImporter RowToColumn mapd_thrift Logger Shared ${CMA
 add_executable(KafkaImporter KafkaImporter.cpp)
 target_link_libraries(KafkaImporter RowToColumn mapd_thrift ${RdKafka_LIBRARIES} Logger Shared ${CMAKE_DL_LIBS} ${Boost_LIBRARIES} ${PROFILER_LIBS})
 
-install(TARGETS StreamImporter KafkaImporter DESTINATION bin  COMPONENT "exe")
+#install(TARGETS StreamImporter KafkaImporter DESTINATION bin  COMPONENT "exe")
+install(TARGETS StreamImporter KafkaImporter DESTINATION)

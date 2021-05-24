@@ -32,10 +32,11 @@ if("${CMAKE_VERSION}" VERSION_GREATER 3.11.999)
   cmake_policy(SET CMP0074 NEW)
 endif()
 
-find_program(CCACHE_EXE ccache)
-if(CCACHE_EXE)
-  set_property(GLOBAL PROPERTY RULE_LAUNCH_COMPILE "${CCACHE_EXE}")
-endif()
+#TODO: Remove. My ccache doesn't work on Windows for some reasons
+#find_program(CCACHE_EXE ccache)
+#if(CCACHE_EXE)
+#  set_property(GLOBAL PROPERTY RULE_LAUNCH_COMPILE "${CCACHE_EXE}")
+#endif()
 
 option(ENABLE_IWYU "Enable include-what-you-use" OFF)
 if(ENABLE_IWYU)
@@ -411,7 +412,7 @@ find_library(CLANG_LIB clang-cpp)
 find_library(LLVM_LIB LLVM)
 # Deps builds use separate libs for each clang component, while some distros now bundle into a single lib
 if (${CMAKE_SYSTEM_NAME} STREQUAL "Darwin" OR NOT LLVM_LIB)
-  set(LLVM_COMPONENTS support mcjit core irreader option linker)
+  set(LLVM_COMPONENTS support mcjit core irreader option linker ipo)
 
   if(ENABLE_INTEL_JIT_LISTENER)
     list(APPEND LLVM_COMPONENTS inteljitevents)
